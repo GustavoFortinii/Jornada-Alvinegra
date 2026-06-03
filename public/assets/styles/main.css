@@ -4,38 +4,152 @@
     box-sizing:border-box;
 }
 
-.hero{
-    width:100%;
-    height:100vh; /* ocupa a tela inteira */
-    
-    background-image: url('../images/94425d34-3d62-42cb-86b3-43a939398475.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-position:  50% 55%;  
-
-    position: relative;
+body{
+    font-family:Arial, Helvetica, sans-serif;
 }
+
+/* HERO */
+
+.hero{
+    position:relative;
+
+    width:100%;
+    height:100vh;
+
+    background-image:url("../images/fundo.jpg");
+    background-size:cover;
+    background-position:center;
+}
+
+/* ESCURECE A IMAGEM */
 
 .overlay{
     position:absolute;
     inset:0;
-    
-    background:rgba(0,0,0,.45);
+    background:rgba(0,0,0,.55);
+}
+
+/* NAVBAR */
+
+.cabecalho{
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:90px;
+
+    padding:0 60px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    z-index:10;
+}
+
+.logo-area{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nome-site{
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white; /* ou a cor que desejar */
+}
+
+#img-logo{
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+/* BOTÃO LOGIN */
+
+.btn-login{
+    background: transparent;
+    color: white;
+
+    border: 1px solid white;
+    border-radius: 10px;
+
+    padding: 12px 30px;
+
+    cursor: pointer;
+    font-size: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-login svg{
+    width: 20px;
+    height: 20px;
+    fill: white;
+}
+
+/* CONTEÚDO */
+
+.hero-content{
+    position:relative;
+    z-index:2;
+
+    height:100%;
 
     display:flex;
     flex-direction:column;
     justify-content:center;
-    padding-left:10%;
+
+    padding-left:18%;
 }
 
-.overlay h1{
+.descricao{
     color:white;
-    font-size:4rem;
+    font-size:2rem;
+    line-height:1.1;
+    font-weight:700;
+    margin-bottom:17rem;
+    
 }
 
-.overlay p{
-    color:white;
-    font-size:1.5rem;
-    margin-top:10px;
+.destaque{
+    color:#0f0f0f;
+}
+.destaqueV{
+    color: rgb(177, 13, 13);
+}
+/* BOTÃO EXPLORAR */
+
+.btn-explorar{
+    width: 220px;
+    height: 60px;
+
+    border: none;
+    border-radius: 15px;
+
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+
+    position: relative;
+    bottom: 15rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-explorar svg{
+    width: 1.4rem;
+    height: 1.4rem;
+}
+a{
+    text-decoration: none;
+    text-transform: none;
 }
