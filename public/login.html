@@ -1,11 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GaloFrame</title>
+  <link rel="icon" href="assets/images/logo.png">
+  <link rel="stylesheet" href="./assets/styles/login.css">
 </head>
 <body>
+
+  <div class="login-container">
     
+    <div class="logo">
+      <span class="destaque">Galo</span>Frame
+      <span class="logo-dot"></span>
+    </div>
+
+    <p class="subtitle">
+      Entre para registrar suas histórias alvinegras.
+    </p>
+
+    <form id="loginForm">
+
+      <div class="form-group">
+        <label for="email">E-mail ou Usuário</label>
+        <input
+          type="text"
+          id="email"
+          placeholder="seuemail@exemplo.com"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="••••••••"
+          required
+        >
+      </div>
+
+      <button type="submit" class="login-btn">
+        Entrar
+      </button>
+
+    </form>
+
+    <div class="forgot">
+      <a href="#">Esqueci minha senha</a>
+    </div>
+
+    <div class="register">
+      Não tem conta?
+      <a href="#">Crie agora</a>
+    </div>
+
+  </div>
+
+  <script src="./assets/scripts/login.js"></script>
+
 </body>
 </html>

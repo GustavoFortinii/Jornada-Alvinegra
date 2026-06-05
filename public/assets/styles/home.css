@@ -1,0 +1,207 @@
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0a0a;
+      color: white;
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: -2.5px;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      cursor: pointer;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+    }
+    .destaque{
+      color: #0a0a0a;
+    }
+    .logo-dot {
+      width: 13px;
+      height: 13px;
+      background: #DA291C;
+      border-radius: 50%;
+    }
+
+    .search-bar {
+      background: #1a1a1a;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px;
+      padding: 10px 20px;
+      width: 380px;
+      color: white;
+      font-size: 1rem;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      font-weight: 600;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 12px;
+      transition: 0.2s;
+      
+    }
+    .nav-item:hover{
+        color: red;
+    }
+
+   
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .upload-btn {
+      background: #DA291C;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.3s;
+    }
+
+    .upload-btn:hover {
+      background: #c41f17;
+      transform: scale(1.05);
+    }
+
+    .main-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+      justify-content: center;
+    }
+
+    /* Feed Principal */
+    .feed {
+      flex: 1;
+      max-width: 680px;
+    }
+
+    .post {
+      background: #111;
+      border-radius: 20px;
+      margin-bottom: 30px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .post-header {
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #333;
+      border: 2px solid #DA291C;
+    }
+
+    .post-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .post-actions {
+      padding: 12px 20px;
+      display: flex;
+      gap: 24px;
+      font-size: 1.5rem;
+    }
+
+    .post-actions span:hover {
+      color: #DA291C;
+      cursor: pointer;
+    }
+
+    .post-caption {
+      padding: 0 20px 20px;
+      line-height: 1.5;
+    }
+
+    .hashtag {
+      color: #DA291C;
+      font-weight: 600;
+    }
+
+    /* Sidebar Direita */
+    .right-sidebar {
+      width: 280px;
+      position: sticky;
+      top: 90px;
+      height: fit-content;
+    }
+
+    .trending {
+      background: #111;
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .floating-upload {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #DA291C;
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      box-shadow: 0 10px 30px rgba(218, 41, 28, 0.5);
+      cursor: pointer;
+      z-index: 200;
+      transition: 0.3s;
+    }
+
+    .floating-upload:hover {
+      transform: scale(1.1);
+    }

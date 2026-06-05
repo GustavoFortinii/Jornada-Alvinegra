@@ -12,9 +12,10 @@
 
     .hero {
       height: 100vh;
-      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)), url('../images/fundo4.png') center/cover no-repeat;
-      display: flex;
-      align-items: center;
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
+      url('../images/fundo2.png') center/cover no-repeat;
+      padding-top: 8rem;
+      padding-right: 20rem;
       position: relative;
     }
 
@@ -23,8 +24,9 @@
       margin: 0 auto;
       padding: 0 30px;
       position: relative;
-      z-index: 2;
+      
     }
+   
 
     header {
       position: absolute;
@@ -44,7 +46,8 @@
       color: white;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 2px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
     }
 
     .logo-dot {
@@ -112,38 +115,15 @@
       height: 200px;
       border-radius: 14px;
     }
-
-    .app-stores {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .store-btn {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.25);
-      padding: 14px 26px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-decoration: none;
-      color: white;
-      transition: 0.3s;
-    }
-
-    .store-btn:hover {
-      background: rgba(255,255,255,0.22);
-      transform: translateY(-3px);
-    }
-
     .scroll-hint {
       position: absolute;
       bottom: 45px;
       left: 50%;
       transform: translateX(-50%);
       animation: bounce 2s infinite;
+    }
+    .destaque{
+      color:  #000000;
     }
 
     @keyframes bounce {
