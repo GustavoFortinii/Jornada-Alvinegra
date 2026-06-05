@@ -57,61 +57,14 @@
 
       </div>
 
+      </div>
+
       
         
     </div>
      
     </div>
   </header>
-
-  
-
-  <!-- Botão Flutuante -->
-  <div class="floating-upload" onclick="openUploadModal()">
-    <svg width="24" height="24" viewBox="0 0 24 24">
-        <path d="M12 5V19M5 12H19" 
-              stroke="white" 
-              stroke-width="2.5" 
-              stroke-linecap="round"/>
-    </svg>
-</div>
-
-<!-- Input de arquivo escondido -->
-<input type="file" id="imageUpload" accept="image/*" style="display: none;">
-
-<!-- Área onde a imagem vai aparecer -->
-<div id="imagePreviewContainer" style="margin-top: 20px; text-align: center; display: none;">
-    <h3>Imagem carregada:</h3>
-    <img id="previewImage" style="max-width: 100%; max-height: 600px; border: 2px solid #333; border-radius: 8px;">
-</div>
-
-  <script>
-  // Abrir seletor de arquivo
-function openUploadModal() {
-    document.getElementById('imageUpload').click();
-}
-
-// Quando o usuário escolher a imagem
-document.getElementById('imageUpload').addEventListener('change', function(e) {
-    const file = e.target.files[0];
-    
-    if (!file || !file.type.startsWith('image/')) {
-        alert('Por favor, selecione uma imagem válida!');
-        return;
-    }
-
-    const reader = new FileReader();
-
-    reader.onload = function(event) {
-        // Salva a imagem no localStorage
-        localStorage.setItem('uploadedImage', event.target.result);
-        
-        // Redireciona para a outra página
-        window.location.href = 'studio.html'; 
-    };
-
-    reader.readAsDataURL(file);
-});
-  </script>
+  <script src="./assets/scripts/home.js"></script>
 </body>
 </html>

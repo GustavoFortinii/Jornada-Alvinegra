@@ -3,127 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estúdio</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #000;
-            color: white;
-            font-family: Arial, sans-serif;
-        }
-        header {
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2px;
-            padding: 5px;
-        }
-        .grid img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-            cursor: pointer;
-        }
-        .floating-upload {
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background: #f00;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(255,0,0,0.4);
-            z-index: 100;
-        }
-        .empty {
-            text-align: center;
-            padding: 50px 20px;
-            color: #888;
-        }
-         header {
-      background: transparent;
-      backdrop-filter: blur(12px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .main-nav a{
-      color: white;
-      text-decoration: none;
-    }
-    .nav {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 20px;
-      height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-size: 34px;
-      font-weight: 900;
-      letter-spacing: -2.5px;
-      display: flex;
-      align-items: center;
-      gap: 3px;
-      cursor: pointer;
-      text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
-    }
-    .destaque{
-      color: #0a0a0a;
-    }
-    .logo-dot {
-      width: 13px;
-      height: 13px;
-      background: #DA291C;
-      border-radius: 50%;
-    }
-
-    .search-bar {
-      background: #1a1a1a;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 50px;
-      padding: 10px 20px;
-      width: 380px;
-      color: white;
-      font-size: 1rem;
-    }
-
-    .main-nav {
-      display: flex;
-      margin-left: 18rem;
-      gap: 32px;
-      font-weight: 600;
-    }
-
-    .nav-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      padding: 8px 12px;
-      border-radius: 12px;
-      transition: 0.2s;
-      
-    }
-    .nav-item:hover{
-        color: rgb(211, 54, 54);
-    }
-
-    </style>
+    <link rel="stylesheet" href="./assets/styles/studio.css">
+    <link rel="icon" href="assets/images/logo.png">
+    <title>GaloFrame - Estúdio</title>
+   
 </head>
 <body>
 
@@ -189,61 +72,8 @@
     <!-- Input escondido -->
     <input type="file" id="imageUpload" accept="image/*" style="display: none;">
 
-    <script>
-        let images = JSON.parse(localStorage.getItem('studioImages')) || [];
-
-        function renderGallery() {
-            const grid = document.getElementById('imageGrid');
-            const empty = document.getElementById('emptyMessage');
-            grid.innerHTML = '';
-
-            if (images.length === 0) {
-                empty.style.display = 'block';
-                return;
-            }
-
-            empty.style.display = 'none';
-
-            images.forEach((imgData, index) => {
-                const img = document.createElement('img');
-                img.src = imgData;
-                img.onclick = () => openImageInEditor(index);
-                grid.appendChild(img);
-            });
-        }
-
-        function openUploadModal() {
-            document.getElementById('imageUpload').click();
-        }
-
-        document.getElementById('imageUpload').addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (!file || !file.type.startsWith('image/')) return alert('Selecione uma imagem válida!');
-
-            const reader = new FileReader();
-            reader.onload = function(event) {
-                images.unshift(event.target.result); // adiciona no início
-                localStorage.setItem('studioImages', JSON.stringify(images));
-                renderGallery();
-            };
-            reader.readAsDataURL(file);
-        });
-
-        function openImageInEditor(index) {
-            localStorage.setItem('currentEditImage', images[index]);
-            window.location.href = 'editor.html';
-        }
-
-        function clearAllImages() {
-            if (confirm('Tem certeza que deseja apagar todas as imagens?')) {
-                images = [];
-                localStorage.removeItem('studioImages');
-                renderGallery();
-            }
-        }
-
-        // Carregar galeria ao abrir
-        window.onload = renderGallery;
+    <script src="./assets/scripts/studio.js">
+        
     </script>
 </body>
 </html>

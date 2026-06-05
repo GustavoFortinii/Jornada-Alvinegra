@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor - GaloFrame</title>
+    <link rel="stylesheet" href="assets/styles/editor.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav">
+            <button class="back-btn" onclick="window.location.href='studio.html'">← Voltar</button>
+            
+            <div class="logo" onclick="window.location.href='home.html'">
+                <span class="destaque">Galo</span>Frame 
+                <div class="logo-dot"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="editor-container">
+        <div class="image-preview">
+            <img id="previewImage" alt="Imagem para edição">
+        </div>
+
+        <div class="editor-actions">
+            <button onclick="deleteCurrentImage()" class="btn btn-danger">🗑️ Excluir</button>
+            <button onclick="saveAndGoBack()" class="btn btn-primary">💾 Salvar e Voltar</button>
+            <button onclick="postImage()" class="btn btn-success">📤 Postar no Feed</button>
+        </div>
+    </main>
+
+    <script src="assets/scripts/editor.js"></script>
+</body>
+</html>
