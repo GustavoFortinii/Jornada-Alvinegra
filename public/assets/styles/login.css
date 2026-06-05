@@ -11,8 +11,7 @@ body {
   background:
     linear-gradient(
       rgba(0, 0, 0, 0.55),
-      rgba(0, 0, 0, 0.75)
-    ),
+      rgba(0, 0, 0, 0.75)),
     url("../images/fundo1.png") center/cover no-repeat;
 
   display: flex;

@@ -108,12 +108,15 @@
       padding: 16px;
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      width: 185px;
+      
     }
 
     .qr-code {
-      width: 200px;
-      height: 200px;
+      width: 150px;
+      height: 150px;
       border-radius: 14px;
+      
     }
     .scroll-hint {
       position: absolute;
