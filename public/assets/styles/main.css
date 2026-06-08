@@ -131,3 +131,29 @@
     @keyframes bounce {
       50% { transform: translateX(-50%) translateY(15px); }
     }
+
+    @media (min-width: 320px) {
+
+        .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
+      url('../images/fundo2.png') center/cover no-repeat;
+     }
+
+     .hero-content h1{
+      font-size: 2rem;
+      width: 27rem;
+     }
+     .hero-content p{
+      width: 20rem;
+     }
+     .destaque{
+      color: rgb(0, 0, 0);
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+     }
+     .logo{
+      
+     }
+   
+    }
+ 

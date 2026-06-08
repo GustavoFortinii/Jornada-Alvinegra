@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GaloFrame - Feed</title>
+    <link rel="stylesheet" href="./assets/styles/home.css">
+    <link rel="icon" href="assets/images/logo.png">
+    <script src="https://unpkg.com/dexie@4.0.8/dist/dexie.min.js"></script>
+    
+    <style>
+        .feed-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .memory-card {
+            background: #111;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .memory-card img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+        }
+        .memory-info {
+            padding: 20px;
+        }
+        .memory-title {
+            font-size: 1.4rem;
+            margin: 0 0 8px 0;
+            color: white;
+        }
+        .memory-meta {
+            color: #aaa;
+            font-size: 0.95rem;
+            display: flex;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+        .memory-description {
+            color: #ddd;
+            line-height: 1.5;
+        }
+        .empty-feed {
+            text-align: center;
+            padding: 80px 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header (mesmo do home.html) -->
+    <header>
+        <div class="nav">
+            <div class="logo" onclick="window.location.href='home.html'">
+                <span class="destaque">Galo</span>Frame <div class="logo-dot"></div>
+            </div>
+            
+            <input type="text" class="search-bar" placeholder="Buscar momentos alvinegros..." onkeyup="filtrarFeed(this.value)">
+
+            <div class="main-nav">
+                <a href="home.html">
+                    <div class="nav-item">Início</div>
+                </a>
+                <a href="feed.html">
+                    <div class="nav-item active">Feed</div>
+                </a>
+                <a href="studio.html">
+                    <div class="nav-item">Studio</div>
+                </a>
+                <a href="perfil.html">
+                    <div class="nav-item">Perfil</div>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="feed-container">
+        <h1 style="text-align:center; margin: 30px 0;">Feed da Massa</h1>
+        <div id="feed" class="feed"></div>
+        
+        <div id="emptyFeed" class="empty-feed" style="display:none;">
+            <h2>Nenhuma memória ainda</h2>
+            <p>Seja o primeiro a registrar um momento com o Galo!</p>
+            <a href="studio.html" style="color:#DA291C; text-decoration:underline;">Ir para o Studio →</a>
+        </div>
+    </div>
+
+    <script type="module">
+        import Dexie from 'https://unpkg.com/dexie@4.0.8/dist/modern/dexie.mjs';
+
+        const db = new Dexie('GaloFrameDB');
+        db.version(1).stores({
+            memories: '++id, title, description, date, tags, imageData, createdAt'
+        });
+
+        async function carregarFeed() {
+            const feedDiv = document.getElementById('feed');
+            const emptyDiv = document.getElementById('emptyFeed');
+            
+            const memories = await db.memories.orderBy('createdAt').reverse().toArray();
+
+            if (memories.length === 0) {
+                emptyDiv.style.display = 'block';
+                feedDiv.innerHTML = '';
+                return;
+            }
+
+            emptyDiv.style.display = 'none';
+            feedDiv.innerHTML = '';
+
+            memories.forEach(memory => {
+                const card = document.createElement('div');
+                card.className = 'memory-card';
+                card.innerHTML = `
+                    <img src="${memory.imageData}" alt="${memory.title}">
+                    <div class="memory-info">
+                        <h3 class="memory-title">${memory.title || 'Memória do Galo'}</h3>
+                        <div class="memory-meta">
+                            <span>${new Date(memory.date || memory.createdAt).toLocaleDateString('pt-BR')}</span>
+                            ${memory.tags ? `<span>#${memory.tags[0] || 'galo'}</span>` : ''}
+                        </div>
+                        <p class="memory-description">${memory.description || 'Um grande momento alvinegro ❤️'}</p>
+                    </div>
+                `;
+                feedDiv.appendChild(card);
+            });
+        }
+
+        function filtrarFeed(termo) {
+            // Implementação simples de filtro (pode melhorar depois)
+            const cards = document.querySelectorAll('.memory-card');
+            termo = termo.toLowerCase();
+            
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                card.style.display = text.includes(termo) ? 'block' : 'none';
+            });
+        }
+
+        // Carregar feed ao abrir a página
+        window.onload = carregarFeed;
+    </script>
+</body>
+</html>
